@@ -1,0 +1,160 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--t-base), transform var(--t-base);
+}
+.card:hover,
+.card:focus-within {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+/* ---- Media ------------------------------------------------------------- */
+.media {
+  position: relative;
+}
+
+.topLeft {
+  position: absolute;
+  top: var(--space-12);
+  inset-inline-start: var(--space-12);
+}
+
+.fav {
+  position: absolute;
+  top: var(--space-12);
+  inset-inline-end: var(--space-12);
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--c-accent-red);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+.fav:hover {
+  background: #fff;
+  transform: scale(1.06);
+}
+.fav[aria-pressed='true'] {
+  color: var(--c-accent-red);
+}
+
+/* ---- Body -------------------------------------------------------------- */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  flex: 1;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  min-height: 24px;
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent-red);
+}
+
+.title {
+  font-size: 1.9rem;
+  margin: 0;
+}
+.titleLink {
+  color: inherit;
+  transition: color var(--t-fast);
+}
+.titleLink:hover {
+  color: var(--c-primary);
+  text-decoration: none;
+}
+/* stretch the title link across the whole card so any tap opens the detail page */
+.titleLink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.desc {
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--c-hairline);
+  margin-top: auto;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.priceFrom {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.priceValue {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: var(--tracking-display);
+  color: var(--c-ink);
+}
+
+/* per-card WhatsApp action — quieter than the page-level CTA.
+   raised above the stretched title link so it stays independently clickable */
+.book {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+  padding: 11px 16px;
+  border-radius: var(--r-pill);
+  background: var(--c-teal-tint);
+  color: var(--c-primary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background var(--t-base), color var(--t-base);
+}
+.book:hover {
+  background: var(--c-primary);
+  color: #fff;
+  text-decoration: none;
+}

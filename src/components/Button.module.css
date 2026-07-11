@@ -1,0 +1,90 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border-radius: var(--r-pill);
+  border: 2px solid transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background var(--t-base), color var(--t-base),
+    border-color var(--t-base), box-shadow var(--t-base), transform var(--t-fast);
+  user-select: none;
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.label {
+  display: inline-block;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- Sizes ------------------------------------------------------------- */
+.md {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+.lg {
+  padding: 16px 30px;
+  font-size: 17px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ---- Primary — Petrol Teal fill --------------------------------------- */
+.primary {
+  background: var(--c-primary);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.primary:hover {
+  background: var(--c-primary-hover);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- CTA — Tulip Red fill, the loudest button ------------------------- */
+.cta {
+  background: var(--c-accent-red);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+.cta:hover {
+  background: var(--c-red-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- Secondary — Petrol Teal outline ---------------------------------- */
+.secondary {
+  background: transparent;
+  color: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.secondary:hover {
+  background: var(--c-primary);
+  color: #fff;
+}
+
+/* ---- Ghost — hairline border ------------------------------------------ */
+.ghost {
+  background: transparent;
+  color: var(--c-ink);
+  border-color: var(--c-hairline);
+}
+.ghost:hover {
+  background: var(--c-bg);
+  border-color: var(--c-ink);
+}

@@ -1,0 +1,221 @@
+.summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
+  margin-top: var(--space-xs);
+}
+.summaryText {
+  font-weight: 600;
+  color: var(--c-ink);
+}
+
+/* ===== Carousel ========================================================= */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding-block: var(--space-md);
+}
+
+/* Fixed-width window: shows the centre card plus a peek of each neighbour. */
+.viewport {
+  overflow: hidden;
+  width: min(860px, 92vw);
+  padding-block: var(--space-md);
+}
+.viewport:focus-visible {
+  outline: 3px solid var(--c-primary);
+  outline-offset: -3px;
+  border-radius: var(--r-card);
+}
+
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-lg);
+  width: max-content;
+  will-change: transform;
+}
+/* the smooth glide between reviews */
+.animated {
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Card -------------------------------------------------------------- */
+.card {
+  flex: 0 0 auto;
+  width: min(540px, 82vw);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-lg);
+  background: var(--c-surface);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-card);
+  transform-origin: center;
+  /* blur / scale / opacity ease as a card passes through the centre */
+  transition: opacity 400ms ease, filter 400ms ease, transform 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.active {
+  opacity: 1;
+  filter: none;
+  transform: scale(1);
+  box-shadow: var(--shadow-lg);
+  z-index: 2;
+}
+
+/* side reviews — 50% transparent, diminished, blurred */
+.dim {
+  opacity: 0.5;
+  filter: blur(2px);
+  transform: scale(0.84);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  z-index: 1;
+}
+.dim:hover {
+  opacity: 0.72;
+  filter: blur(0.5px);
+  transform: scale(0.88);
+}
+
+/* ---- Card internals ---------------------------------------------------- */
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--r-pill);
+  background: var(--c-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+.authorMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.name {
+  font-weight: 700;
+}
+.from {
+  font-size: 0.85rem;
+  color: var(--c-muted);
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+.source {
+  font-size: 0.78rem;
+  color: var(--c-muted);
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.quote {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--c-ink);
+  /* uniform card height across the whole track (every card is in the DOM) */
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.date {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-size: 0.82rem;
+  color: var(--c-muted);
+}
+
+/* ---- Arrows ------------------------------------------------------------ */
+.arrow {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+  color: var(--c-primary);
+  box-shadow: var(--shadow-md);
+  transition: background var(--t-fast), color var(--t-fast), transform var(--t-fast),
+    opacity var(--t-fast);
+}
+.arrow:hover:not(:disabled) {
+  background: var(--c-primary);
+  color: #fff;
+  transform: scale(1.06);
+}
+.arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- Dots -------------------------------------------------------------- */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+.dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-pill);
+  background: var(--c-hairline);
+  cursor: pointer;
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+.dot:hover {
+  background: var(--c-muted);
+}
+.dotActive {
+  background: var(--c-primary);
+  transform: scale(1.25);
+}
+
+/* ---- Reduced motion ---------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .animated {
+    transition: none;
+  }
+  .card {
+    transition: none;
+  }
+}

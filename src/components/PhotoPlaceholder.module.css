@@ -1,0 +1,61 @@
+.photo {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--c-teal-tint);
+  display: flex;
+  align-items: flex-end;
+}
+
+.rounded {
+  border-radius: var(--r-card);
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* faint texture so flat gradients read as "image area" */
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 80% at 70% 0%,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+}
+
+.tag {
+  position: absolute;
+  top: var(--space-12);
+  inset-inline-end: var(--space-12);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--c-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: var(--r-pill);
+  z-index: 1;
+}
+
+.caption {
+  position: relative;
+  z-index: 1;
+  margin: var(--space-md);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  opacity: 0.92;
+  max-width: 42ch;
+}

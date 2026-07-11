@@ -1,0 +1,13 @@
+/* Lift the trust strip so it overlaps the bottom of the hero */
+.wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--space-32));
+  margin-bottom: var(--space-32);
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    margin-top: var(--space-32);
+  }
+}

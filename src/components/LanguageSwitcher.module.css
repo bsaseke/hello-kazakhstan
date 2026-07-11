@@ -1,0 +1,60 @@
+.wrap {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-pill);
+  background: var(--c-surface);
+  color: var(--c-ink);
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.trigger:hover {
+  border-color: var(--c-primary);
+}
+
+.code {
+  min-width: 1.5em;
+  text-align: center;
+}
+
+.menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 8px);
+  min-width: 140px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  z-index: var(--z-overlay);
+}
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding: 9px 12px;
+  border: none;
+  border-radius: var(--r-input);
+  background: transparent;
+  color: var(--c-ink);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--t-fast);
+}
+.option:hover {
+  background: var(--c-bg);
+}
+.active {
+  background: var(--c-teal-tint);
+  color: var(--c-primary);
+  font-weight: 700;
+}

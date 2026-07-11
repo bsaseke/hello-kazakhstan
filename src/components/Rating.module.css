@@ -1,0 +1,28 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 1px;
+}
+
+.on {
+  color: var(--c-accent-gold);
+}
+.off {
+  color: var(--c-hairline);
+}
+
+.value {
+  font-weight: 700;
+  color: var(--c-ink);
+}
+
+.count {
+  color: var(--c-muted);
+}

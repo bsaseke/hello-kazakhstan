@@ -1,0 +1,72 @@
+/* =========================================================================
+   Hello Kazakhstan — design tokens
+   Single source of truth for color, spacing, radii, elevation, type.
+   Reference these variables everywhere; never hardcode raw values.
+   ========================================================================= */
+
+:root {
+  /* ---- Color ------------------------------------------------------------ */
+  --c-primary: #045372; /* Petrol Teal — primary buttons, links, accents */
+  --c-bg: #fafaf8; /* Paper — page background */
+  --c-surface: #ffffff; /* cards & surfaces */
+  --c-ink: #000000; /* primary text */
+  --c-accent-gold: #e2bf2f; /* Steppe Gold — stars, price-promise, marquee dots */
+  --c-accent-red: #ee2d38; /* Tulip Red — CTA, category labels, marquee band */
+
+  /* Hover/active shades (derived, kept subtle) */
+  --c-primary-hover: #03435d;
+  --c-red-hover: #d61f2a;
+
+  /* Derived tints (low-saturation washes of the above) */
+  --c-teal-tint: rgba(4, 83, 114, 0.1);
+  --c-red-tint: rgba(238, 45, 56, 0.1);
+  --c-gold-tint: rgba(226, 191, 47, 0.16);
+  --c-muted: rgba(0, 0, 0, 0.56); /* muted/secondary text */
+  --c-hairline: rgba(0, 0, 0, 0.1); /* dividers, ghost borders */
+
+  /* On-photo scrim — localised darkening behind overlaid text */
+  --c-scrim: rgba(0, 0, 0, 0.42);
+
+  /* ---- Spacing scale (4px base) ----------------------------------------- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-12: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-32: 32px;
+  --space-xl: 48px;
+  --space-64: 64px;
+  --space-section: 96px;
+
+  /* ---- Radii ------------------------------------------------------------ */
+  --r-input: 8px;
+  --r-panel: 14px;
+  --r-card: 22px;
+  --r-pill: 999px;
+
+  /* ---- Elevation (soft, low-opacity — never hard drop shadows) ---------- */
+  --shadow-sm: 0 1px 2px rgba(4, 0, 0, 0.06), 0 2px 6px rgba(4, 0, 0, 0.05);
+  --shadow-md: 0 6px 18px rgba(4, 0, 0, 0.08), 0 2px 6px rgba(4, 0, 0, 0.05);
+  --shadow-lg: 0 18px 48px rgba(4, 0, 0, 0.14);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --content-max: 1080px;
+  --gutter: 24px;
+
+  /* ---- Typography ------------------------------------------------------- */
+  --font-display: 'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body: 'SF Pro Display', -apple-system, system-ui, 'Inter', sans-serif;
+
+  /* Display tracking — Bebas needs real letter-spacing to breathe */
+  --tracking-display: 0.02em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ---- Motion ----------------------------------------------------------- */
+  --t-fast: 150ms ease;
+  --t-base: 200ms ease;
+  --t-slow: 250ms ease;
+
+  /* ---- Z-index ---------------------------------------------------------- */
+  --z-nav: 100;
+  --z-overlay: 200;
+}

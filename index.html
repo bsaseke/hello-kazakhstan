@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/logo/logo-bw.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Hello Kazakhstan — private and small-group tours around Almaty. Charyn Canyon, Kolsai & Kaindy Lakes, Big Almaty Lake and more. Book directly with a local team." />
+
+  <!-- Fonts are self-hosted via @font-face in src/styles/fonts.css.
+         Preload the two faces above the fold (display + body regular). -->
+  <link rel="preload" href="/fonts/BebasNeue-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/SF-Pro-Display-Regular.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Preload the hero image (LCP) so the browser fetches the right size early. -->
+  <link rel="preload" as="image" type="image/webp"
+    imagesrcset="/images/charyn5-480.webp 480w, /images/charyn5-800.webp 800w, /images/charyn5-1280.webp 1280w, /images/charyn5-1920.webp 1920w"
+    imagesizes="100vw" />
+
+  <title>Hello Kazakhstan — Experience Kazakhstan like a local</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

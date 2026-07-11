@@ -1,0 +1,164 @@
+/* =========================================================================
+   Hello Kazakhstan — global styles & small utility layer
+   ========================================================================= */
+
+@import './tokens.css';
+@import './fonts.css';
+
+/* ---- Reset ------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--c-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---- Display headings -------------------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  line-height: 0.98;
+  color: var(--c-ink);
+}
+
+/* Russian: Bebas Neue has no Cyrillic glyphs, so titles fall back awkwardly.
+   Use SF Pro Display for all display/title text and tune the typography so it
+   reads as a proper title rather than thin oversized body text. */
+:root[lang='ru'] {
+  --font-display: 'SF Pro Display', -apple-system, system-ui, 'Inter', sans-serif;
+  --tracking-display: normal;
+}
+:root[lang='ru'] h1,
+:root[lang='ru'] h2,
+:root[lang='ru'] h3 {
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+/* ---- Accessibility ----------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+  border-radius: var(--r-input);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: -64px;
+  transform: translateX(-50%);
+  background: var(--c-primary);
+  color: #fff;
+  padding: var(--space-12) var(--space-lg);
+  border-radius: var(--r-pill);
+  z-index: var(--z-overlay);
+  transition: top var(--t-base);
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: var(--space-md);
+  text-decoration: none;
+}
+
+/* ---- Layout utilities -------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-64);
+  }
+}
+
+/* Eyebrow / category label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent-red);
+}
+
+/* Reduced-motion: kill non-essential animation globally as a safety net */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

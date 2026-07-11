@@ -1,0 +1,40 @@
+/* own vertical rhythm so the two stacked tour sections (multi-day / one-day)
+   sit closer together than two unrelated sections */
+.section {
+  padding-block: var(--space-64);
+}
+.section + .section {
+  padding-top: 0;
+}
+
+.heading {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  color: var(--c-primary);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* offset anchor so sticky nav doesn't cover the heading on jump */
+.anchor {
+  display: block;
+  position: relative;
+  top: -90px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

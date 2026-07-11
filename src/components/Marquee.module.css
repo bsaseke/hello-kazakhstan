@@ -1,0 +1,70 @@
+.band {
+  background: var(--c-primary);
+  color: #fff;
+  overflow: hidden;
+  width: 100%;
+  padding-block: 18px;
+  user-select: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 28s linear infinite;
+}
+
+/* Pause on hover so people can read it */
+.band:hover .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-32);
+  padding-inline: var(--space-md);
+}
+
+.text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-accent-gold);
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Static fallback for reduced motion — center the single group, no animation */
+.static {
+  animation: none;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: var(--space-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  min-height: min(86vh, 760px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* full-bleed placeholder "photo" — warm aerial gradient */
+.photo {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    150deg,
+    #0b4a5e 0%,
+    #1d7a86 38%,
+    #cf8a4a 78%,
+    #b4582f 100%
+  );
+}
+.photoImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* localised darkening behind the headline only — bottom-leading corner */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.32) 32%,
+    rgba(0, 0, 0, 0) 62%
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  /* generous bottom padding keeps the buttons clear of the overlapping
+     trust card that lifts into the hero below */
+  padding-block: var(--space-64) var(--space-64);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 760px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-accent-gold);
+  margin: 0;
+}
+
+.headline {
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #fff;
+  margin: 0;
+  max-width: 16ch;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.sub {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 54ch;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  margin-top: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 78vh;
+  }
+  .inner {
+    padding-bottom: var(--space-64);
+  }
+}
